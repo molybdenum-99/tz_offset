@@ -1,0 +1,28 @@
+AllCops:
+  Include:
+    - 'lib/**/*'
+  Exclude:
+    - 'spec/**/*'
+    - 'script/**/*'
+    - '**/*.yaml'
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+
+Style/AndOr:
+  Enabled: false
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Lint/FormatParameterMismatch:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false

@@ -12,6 +12,7 @@ describe TZOffset do
       expect(minutes_from('-01:00')).to eq -60
       expect(minutes_from('+01:00')).to eq 60
       expect(minutes_from('−01:00')).to eq -60
+      expect(minutes_from('−02:30')).to eq -150
       expect(minutes_from('+05:45')).to eq 60*5 + 45
       expect(minutes_from('UTC')).to eq 0
       expect(minutes_from('UTC+01:00')).to eq 60
@@ -47,13 +48,13 @@ describe TZOffset do
 
   describe '#initialize' do
     it 'can be created from number of minutes' do
-      expect(described_class.new(-60).minutes).to eq -60
-      expect(described_class.new( 60).minutes).to eq 60
+      expect(off(-60).minutes).to eq -60
+      expect(off( 60).minutes).to eq 60
     end
 
     it 'can have optional name' do
-      expect(described_class.new(-60, name: 'EET').name).to eq 'EET'
-      expect(described_class.new(-60).name).to be_nil
+      expect(off(-60, name: 'EET').name).to eq 'EET'
+      expect(off(-60).name).to be_nil
     end
   end
 
@@ -65,6 +66,7 @@ describe TZOffset do
     it 'works' do
       expect(at(-60)).to eq '#<TZOffset -01:00>'
       expect(at(+60)).to eq '#<TZOffset +01:00>'
+      expect(at(-150)).to eq '#<TZOffset -02:30>'
       expect(at(5 * 60 + 45)).to eq '#<TZOffset +05:45>'
     end
 
@@ -81,6 +83,7 @@ describe TZOffset do
     it 'works' do
       expect(at(-60)).to eq '-01:00'
       expect(at(+60)).to eq '+01:00'
+      expect(at(-150)).to eq '-02:30'
     end
   end
 
@@ -91,7 +94,7 @@ describe TZOffset do
       expect(off(60)).not_to eq off(120)
     end
 
-    it 'does not fails on strange objects' do
+    it 'does not fails on incompatible objects' do
       expect(off(60)).not_to eq 60
     end
   end
@@ -104,7 +107,7 @@ describe TZOffset do
       expect(off(60) <=> off(30)).to eq 1
     end
 
-    it 'does not fails on strange objects' do
+    it 'fails on incompatible objects' do
       expect { off(60) <=> 60 }.to raise_error(ArgumentError)
     end
   end
@@ -115,11 +118,6 @@ describe TZOffset do
     subject { offset.local(2016, 1, 29, 18, 15, 0) }
 
     it { is_expected.to eq Time.new(2016, 1, 29, 18, 15, 0, '+05:45') }
-
-    context 'zone' do
-      context 'fallback for zones Ruby does not aware of' do
-      end
-    end
   end
 
   describe '#convert' do
@@ -129,11 +127,6 @@ describe TZOffset do
     subject { offset.convert(tm) }
 
     it { is_expected.to eq Time.new(2016, 1, 29, 18, 15, 0, '+05:45') }
-
-    context 'zone' do
-      context 'fallback for zones Ruby does not aware of' do
-      end
-    end
   end
 
   describe '#now' do

@@ -1,4 +1,4 @@
-require './lib/tzoffset/version'
+require './lib/tz_offset/version'
 
 Gem::Specification.new do |s|
   s.name     = 'tz_offset'

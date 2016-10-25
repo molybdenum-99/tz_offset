@@ -1,961 +1,961 @@
 ---
 - :abbr: ACDT
   :title: Australian Central Daylight Savings Time
-  :area: Australian Central
+  :region: Australian Central
   :dst: true
   :val: 630
 - :abbr: ACST
   :title: Australian Central Standard Time
-  :area: Australian Central
+  :region: Australian Central
   :dst: false
   :val: 570
 - :abbr: ACT
   :title: Acre Time
-  :area: Acre
+  :region: Acre
   :dst: false
   :val: -300
 - :abbr: ADT
   :title: Atlantic Daylight Time
-  :area: Atlantic
+  :region: Atlantic
   :dst: true
   :val: -180
 - :abbr: AEDT
   :title: Australian Eastern Daylight Savings Time
-  :area: Australian Eastern
+  :region: Australian Eastern
   :dst: true
   :val: 660
 - :abbr: AEST
   :title: Australian Eastern Standard Time
-  :area: Australian Eastern
+  :region: Australian Eastern
   :dst: false
   :val: 600
 - :abbr: AFT
   :title: Afghanistan Time
-  :area: Afghanistan
+  :region: Afghanistan
   :dst: false
   :val: 270
 - :abbr: AKDT
   :title: Alaska Daylight Time
-  :area: Alaska
+  :region: Alaska
   :dst: true
   :val: -480
 - :abbr: AKST
   :title: Alaska Standard Time
-  :area: Alaska
+  :region: Alaska
   :dst: false
   :val: -540
 - :abbr: AMST
   :title: Amazon Summer Time (Brazil)
-  :area: Amazon
+  :region: Amazon
   :dst: true
   :val: -180
 - :abbr: AMT
   :title: Amazon Time (Brazil)
-  :area: Amazon
+  :region: Amazon
   :dst: false
   :val: -240
 - :abbr: AMT
   :title: Armenia Time
-  :area: Armenia
+  :region: Armenia
   :dst: false
   :val: 240
 - :abbr: ART
   :title: Argentina Time
-  :area: Argentina
+  :region: Argentina
   :dst: false
   :val: -180
 - :abbr: AST
   :title: Arabia Standard Time
-  :area: Arabia
+  :region: Arabia
   :dst: false
   :val: 180
 - :abbr: AST
   :title: Atlantic Standard Time
-  :area: Atlantic
+  :region: Atlantic
   :dst: false
   :val: -240
 - :abbr: AWST
   :title: Australian Western Standard Time
-  :area: Australian Western
+  :region: Australian Western
   :dst: false
   :val: 480
 - :abbr: AZOST
   :title: Azores Summer Time
-  :area: Azores
+  :region: Azores
   :dst: true
   :val: 0
 - :abbr: AZOT
   :title: Azores Standard Time
-  :area: Azores
+  :region: Azores
   :dst: false
   :val: -60
 - :abbr: AZT
   :title: Azerbaijan Time
-  :area: Azerbaijan
+  :region: Azerbaijan
   :dst: false
   :val: 240
 - :abbr: BDT
   :title: Brunei Time
-  :area: Brunei
+  :region: Brunei
   :dst: false
   :val: 480
 - :abbr: BIOT
   :title: British Indian Ocean Time
-  :area: British Indian Ocean
+  :region: British Indian Ocean
   :dst: false
   :val: 360
 - :abbr: BIT
   :title: Baker Island Time
-  :area: Baker Island
+  :region: Baker Island
   :dst: false
   :val: -720
 - :abbr: BOT
   :title: Bolivia Time
-  :area: Bolivia
+  :region: Bolivia
   :dst: false
   :val: -240
 - :abbr: BRST
   :title: Brasilia Summer Time
-  :area: Brasilia
+  :region: Brasilia
   :dst: true
   :val: -120
 - :abbr: BRT
   :title: Brasilia Time
-  :area: Brasilia
+  :region: Brasilia
   :dst: false
   :val: -180
 - :abbr: BST
   :title: Bangladesh Standard Time
-  :area: Bangladesh
+  :region: Bangladesh
   :dst: false
   :val: 360
 - :abbr: BST
   :title: Bougainville Standard Time
-  :area: Bougainville
+  :region: Bougainville
   :dst: false
   :val: 660
 - :abbr: BST
   :title: British Summer Time (British Standard Time from Feb 1968 to Oct 1971)
-  :area: British
+  :region: British
   :dst: true
   :val: 60
 - :abbr: BTT
   :title: Bhutan Time
-  :area: Bhutan
+  :region: Bhutan
   :dst: false
   :val: 360
 - :abbr: CAT
   :title: Central Africa Time
-  :area: Central Africa
+  :region: Central Africa
   :dst: false
   :val: 120
 - :abbr: CCT
   :title: Cocos Islands Time
-  :area: Cocos Islands
+  :region: Cocos Islands
   :dst: false
   :val: 390
 - :abbr: CDT
   :title: Central Daylight Time (North America)
-  :area: Central
+  :region: Central
   :dst: true
   :val: -300
 - :abbr: CDT
   :title: Cuba Daylight Time
-  :area: Cuba
+  :region: Cuba
   :dst: true
   :val: -240
 - :abbr: CEST
   :title: Central European Summer Time (Cf. HAEC)
-  :area: Central European
+  :region: Central European
   :dst: true
   :val: 120
 - :abbr: CET
   :title: Central European Time
-  :area: Central European
+  :region: Central European
   :dst: false
   :val: 60
 - :abbr: CHADT
   :title: Chatham Daylight Time
-  :area: Chatham
+  :region: Chatham
   :dst: true
   :val: 825
 - :abbr: CHAST
   :title: Chatham Standard Time
-  :area: Chatham
+  :region: Chatham
   :dst: false
   :val: 765
 - :abbr: CHOST
   :title: Choibalsan Summer Time
-  :area: Choibalsan
+  :region: Choibalsan
   :dst: true
   :val: 540
 - :abbr: CHOT
   :title: Choibalsan Standard Time
-  :area: Choibalsan
+  :region: Choibalsan
   :dst: false
   :val: 480
 - :abbr: CHST
   :title: Chamorro Standard Time
-  :area: Chamorro
+  :region: Chamorro
   :dst: false
   :val: 600
 - :abbr: CHUT
   :title: Chuuk Time
-  :area: Chuuk
+  :region: Chuuk
   :dst: false
   :val: 600
 - :abbr: CIST
   :title: Clipperton Island Standard Time
-  :area: Clipperton Island
+  :region: Clipperton Island
   :dst: false
   :val: -480
 - :abbr: CIT
   :title: Central Indonesia Time
-  :area: Central Indonesia
+  :region: Central Indonesia
   :dst: false
   :val: 480
 - :abbr: CKT
   :title: Cook Island Time
-  :area: Cook Island
+  :region: Cook Island
   :dst: false
   :val: -600
 - :abbr: CLST
   :title: Chile Summer Time
-  :area: Chile
+  :region: Chile
   :dst: true
   :val: -180
 - :abbr: CLT
   :title: Chile Standard Time
-  :area: Chile
+  :region: Chile
   :dst: false
   :val: -240
 - :abbr: COST
   :title: Colombia Summer Time
-  :area: Colombia
+  :region: Colombia
   :dst: true
   :val: -240
 - :abbr: COT
   :title: Colombia Time
-  :area: Colombia
+  :region: Colombia
   :dst: false
   :val: -300
 - :abbr: CST
   :title: Central Standard Time (North America)
-  :area: Central
+  :region: Central
   :dst: false
   :val: -360
 - :abbr: CST
   :title: China Standard Time
-  :area: China
+  :region: China
   :dst: false
   :val: 480
 - :abbr: CST
   :title: Cuba Standard Time
-  :area: Cuba
+  :region: Cuba
   :dst: false
   :val: -300
 - :abbr: CT
   :title: China time
-  :area: China
+  :region: China
   :dst: false
   :val: 480
 - :abbr: CVT
   :title: Cape Verde Time
-  :area: Cape Verde
+  :region: Cape Verde
   :dst: false
   :val: -60
 - :abbr: CXT
   :title: Christmas Island Time
-  :area: Christmas Island
+  :region: Christmas Island
   :dst: false
   :val: 420
 - :abbr: DAVT
   :title: Davis Time
-  :area: Davis
+  :region: Davis
   :dst: false
   :val: 420
 - :abbr: DDUT
   :title: Dumont d'Urville Time
-  :area: Dumont d'Urville
+  :region: Dumont d'Urville
   :dst: false
   :val: 600
 - :abbr: DFT
   :title: AIX specific equivalent of Central European Time
-  :area: AIX specific equivalent of Central European
+  :region: AIX specific equivalent of Central European
   :dst: false
   :val: 60
 - :abbr: EASST
   :title: Easter Island Summer Time
-  :area: Easter Island
+  :region: Easter Island
   :dst: true
   :val: -300
 - :abbr: EAST
   :title: Easter Island Standard Time
-  :area: Easter Island
+  :region: Easter Island
   :dst: false
   :val: -360
 - :abbr: EAT
   :title: East Africa Time
-  :area: East Africa
+  :region: East Africa
   :dst: false
   :val: 180
 - :abbr: ECT
   :title: Eastern Caribbean Time (does not recognise DST)
-  :area: Eastern Caribbean
+  :region: Eastern Caribbean
   :dst: false
   :val: -240
 - :abbr: ECT
   :title: Ecuador Time
-  :area: Ecuador
+  :region: Ecuador
   :dst: false
   :val: -300
 - :abbr: EDT
   :title: Eastern Daylight Time (North America)
-  :area: Eastern
+  :region: Eastern
   :dst: true
   :val: -240
 - :abbr: EEST
   :title: Eastern European Summer Time
-  :area: Eastern European
+  :region: Eastern European
   :dst: true
   :val: 180
 - :abbr: EET
   :title: Eastern European Time
-  :area: Eastern European
+  :region: Eastern European
   :dst: false
   :val: 120
 - :abbr: EGST
   :title: Eastern Greenland Summer Time
-  :area: Eastern Greenland
+  :region: Eastern Greenland
   :dst: true
   :val: 0
 - :abbr: EGT
   :title: Eastern Greenland Time
-  :area: Eastern Greenland
+  :region: Eastern Greenland
   :dst: false
   :val: -60
 - :abbr: EIT
   :title: Eastern Indonesian Time
-  :area: Eastern Indonesian
+  :region: Eastern Indonesian
   :dst: false
   :val: 540
 - :abbr: EST
   :title: Eastern Standard Time (North America)
-  :area: Eastern
+  :region: Eastern
   :dst: false
   :val: -300
 - :abbr: FET
   :title: Further-eastern European Time
-  :area: Further-eastern European
+  :region: Further-eastern European
   :dst: false
   :val: 180
 - :abbr: FJT
   :title: Fiji Time
-  :area: Fiji
+  :region: Fiji
   :dst: false
   :val: 720
 - :abbr: FKST
   :title: Falkland Islands Summer Time
-  :area: Falkland Islands
+  :region: Falkland Islands
   :dst: true
   :val: -180
 - :abbr: FKT
   :title: Falkland Islands Time
-  :area: Falkland Islands
+  :region: Falkland Islands
   :dst: false
   :val: -240
 - :abbr: FNT
   :title: Fernando de Noronha Time
-  :area: Fernando de Noronha
+  :region: Fernando de Noronha
   :dst: false
   :val: -120
 - :abbr: GALT
   :title: Galapagos Time
-  :area: Galapagos
+  :region: Galapagos
   :dst: false
   :val: -360
 - :abbr: GAMT
   :title: Gambier Islands Time
-  :area: Gambier Islands
+  :region: Gambier Islands
   :dst: false
   :val: -540
 - :abbr: GET
   :title: Georgia Standard Time
-  :area: Georgia
+  :region: Georgia
   :dst: false
   :val: 240
 - :abbr: GFT
   :title: French Guiana Time
-  :area: French Guiana
+  :region: French Guiana
   :dst: false
   :val: -180
 - :abbr: GILT
   :title: Gilbert Island Time
-  :area: Gilbert Island
+  :region: Gilbert Island
   :dst: false
   :val: 720
 - :abbr: GIT
   :title: Gambier Island Time
-  :area: Gambier Island
+  :region: Gambier Island
   :dst: false
   :val: -540
 - :abbr: GMT
   :title: Greenwich Mean Time
-  :area: Greenwich Mean
+  :region: Greenwich Mean
   :dst: false
   :val: 0
 - :abbr: GST
   :title: South Georgia and the South Sandwich Islands Time
-  :area: South Georgia and the South Sandwich Islands
+  :region: South Georgia and the South Sandwich Islands
   :dst: false
   :val: -120
 - :abbr: GST
   :title: Gulf Standard Time
-  :area: Gulf
+  :region: Gulf
   :dst: false
   :val: 240
 - :abbr: GYT
   :title: Guyana Time
-  :area: Guyana
+  :region: Guyana
   :dst: false
   :val: -240
 - :abbr: HADT
   :title: Hawaii-Aleutian Daylight Time
-  :area: Hawaii-Aleutian
+  :region: Hawaii-Aleutian
   :dst: true
   :val: -540
 - :abbr: HAEC
   :title: Heure Avancée d'Europe Centrale francised name for CEST Time
-  :area: Heure Avancée d'Europe Centrale francised name for CEST
+  :region: Heure Avancée d'Europe Centrale francised name for CEST
   :dst: false
   :val: 120
 - :abbr: HAST
   :title: Hawaii-Aleutian Standard Time
-  :area: Hawaii-Aleutian
+  :region: Hawaii-Aleutian
   :dst: false
   :val: -600
 - :abbr: HKT
   :title: Hong Kong Time
-  :area: Hong Kong
+  :region: Hong Kong
   :dst: false
   :val: 480
 - :abbr: HMT
   :title: Heard and McDonald Islands Time
-  :area: Heard and McDonald Islands
+  :region: Heard and McDonald Islands
   :dst: false
   :val: 300
 - :abbr: HOVST
   :title: Khovd Summer Time
-  :area: Khovd
+  :region: Khovd
   :dst: true
   :val: 480
 - :abbr: HOVT
   :title: Khovd Standard Time
-  :area: Khovd
+  :region: Khovd
   :dst: false
   :val: 420
 - :abbr: ICT
   :title: Indochina Time
-  :area: Indochina
+  :region: Indochina
   :dst: false
   :val: 420
 - :abbr: IDT
   :title: Israel Daylight Time
-  :area: Israel
+  :region: Israel
   :dst: true
   :val: 180
 - :abbr: IOT
   :title: Indian Ocean Time
-  :area: Indian Ocean
+  :region: Indian Ocean
   :dst: false
   :val: 180
 - :abbr: IRDT
   :title: Iran Daylight Time
-  :area: Iran
+  :region: Iran
   :dst: true
   :val: 270
 - :abbr: IRKT
   :title: Irkutsk Time
-  :area: Irkutsk
+  :region: Irkutsk
   :dst: false
   :val: 480
 - :abbr: IRST
   :title: Iran Standard Time
-  :area: Iran
+  :region: Iran
   :dst: false
   :val: 210
 - :abbr: IST
   :title: Indian Standard Time
-  :area: Indian
+  :region: Indian
   :dst: false
   :val: 330
 - :abbr: IST
   :title: Irish Standard Time
-  :area: Irish
+  :region: Irish
   :dst: false
   :val: 60
 - :abbr: IST
   :title: Israel Standard Time
-  :area: Israel
+  :region: Israel
   :dst: false
   :val: 120
 - :abbr: JST
   :title: Japan Standard Time
-  :area: Japan
+  :region: Japan
   :dst: false
   :val: 540
 - :abbr: KGT
   :title: Kyrgyzstan time
-  :area: Kyrgyzstan
+  :region: Kyrgyzstan
   :dst: false
   :val: 360
 - :abbr: KOST
   :title: Kosrae Time
-  :area: Kosrae
+  :region: Kosrae
   :dst: false
   :val: 660
 - :abbr: KRAT
   :title: Krasnoyarsk Time
-  :area: Krasnoyarsk
+  :region: Krasnoyarsk
   :dst: false
   :val: 420
 - :abbr: KST
   :title: Korea Standard Time
-  :area: Korea
+  :region: Korea
   :dst: false
   :val: 540
 - :abbr: LHST
   :title: Lord Howe Standard Time
-  :area: Lord Howe
+  :region: Lord Howe
   :dst: false
   :val: 630
 - :abbr: LHST
   :title: Lord Howe Summer Time
-  :area: Lord Howe
+  :region: Lord Howe
   :dst: true
   :val: 660
 - :abbr: LINT
   :title: Line Islands Time
-  :area: Line Islands
+  :region: Line Islands
   :dst: false
   :val: 840
 - :abbr: MAGT
   :title: Magadan Time
-  :area: Magadan
+  :region: Magadan
   :dst: false
   :val: 720
 - :abbr: MART
   :title: Marquesas Islands Time
-  :area: Marquesas Islands
+  :region: Marquesas Islands
   :dst: false
   :val: -570
 - :abbr: MAWT
   :title: Mawson Station Time
-  :area: Mawson Station
+  :region: Mawson Station
   :dst: false
   :val: 300
 - :abbr: MDT
   :title: Mountain Daylight Time (North America)
-  :area: Mountain
+  :region: Mountain
   :dst: true
   :val: -360
 - :abbr: MEST
   :title: Middle European Summer Time
-  :area: Middle European
+  :region: Middle European
   :dst: true
   :val: 120
 - :abbr: MET
   :title: Middle European Time
-  :area: Middle European
+  :region: Middle European
   :dst: false
   :val: 60
 - :abbr: MHT
   :title: Marshall Islands Time
-  :area: Marshall Islands
+  :region: Marshall Islands
   :dst: false
   :val: 720
 - :abbr: MIST
   :title: Macquarie Island Station Time
-  :area: Macquarie Island Station
+  :region: Macquarie Island Station
   :dst: false
   :val: 660
 - :abbr: MIT
   :title: Marquesas Islands Time
-  :area: Marquesas Islands
+  :region: Marquesas Islands
   :dst: false
   :val: -570
 - :abbr: MMT
   :title: Myanmar Standard Time
-  :area: Myanmar
+  :region: Myanmar
   :dst: false
   :val: 390
 - :abbr: MSK
   :title: Moscow Time
-  :area: Moscow
+  :region: Moscow
   :dst: false
   :val: 180
 - :abbr: MST
   :title: Malaysia Standard Time
-  :area: Malaysia
+  :region: Malaysia
   :dst: false
   :val: 480
 - :abbr: MST
   :title: Mountain Standard Time (North America)
-  :area: Mountain
+  :region: Mountain
   :dst: false
   :val: -420
 - :abbr: MUT
   :title: Mauritius Time
-  :area: Mauritius
+  :region: Mauritius
   :dst: false
   :val: 240
 - :abbr: MVT
   :title: Maldives Time
-  :area: Maldives
+  :region: Maldives
   :dst: false
   :val: 300
 - :abbr: MYT
   :title: Malaysia Time
-  :area: Malaysia
+  :region: Malaysia
   :dst: false
   :val: 480
 - :abbr: NCT
   :title: New Caledonia Time
-  :area: New Caledonia
+  :region: New Caledonia
   :dst: false
   :val: 660
 - :abbr: NDT
   :title: Newfoundland Daylight Time
-  :area: Newfoundland
+  :region: Newfoundland
   :dst: true
   :val: -150
 - :abbr: NFT
   :title: Norfolk Time
-  :area: Norfolk
+  :region: Norfolk
   :dst: false
   :val: 660
 - :abbr: NPT
   :title: Nepal Time
-  :area: Nepal
+  :region: Nepal
   :dst: false
   :val: 345
 - :abbr: NST
   :title: Newfoundland Standard Time
-  :area: Newfoundland
+  :region: Newfoundland
   :dst: false
   :val: -210
 - :abbr: NT
   :title: Newfoundland Time
-  :area: Newfoundland
+  :region: Newfoundland
   :dst: false
   :val: -210
 - :abbr: NUT
   :title: Niue Time
-  :area: Niue
+  :region: Niue
   :dst: false
   :val: -660
 - :abbr: NZDT
   :title: New Zealand Daylight Time
-  :area: New Zealand
+  :region: New Zealand
   :dst: true
   :val: 780
 - :abbr: NZST
   :title: New Zealand Standard Time
-  :area: New Zealand
+  :region: New Zealand
   :dst: false
   :val: 720
 - :abbr: OMST
   :title: Omsk Time
-  :area: Omsk
+  :region: Omsk
   :dst: false
   :val: 360
 - :abbr: ORAT
   :title: Oral Time
-  :area: Oral
+  :region: Oral
   :dst: false
   :val: 300
 - :abbr: PDT
   :title: Pacific Daylight Time (North America)
-  :area: Pacific
+  :region: Pacific
   :dst: true
   :val: -420
 - :abbr: PET
   :title: Peru Time
-  :area: Peru
+  :region: Peru
   :dst: false
   :val: -300
 - :abbr: PETT
   :title: Kamchatka Time
-  :area: Kamchatka
+  :region: Kamchatka
   :dst: false
   :val: 720
 - :abbr: PGT
   :title: Papua New Guinea Time
-  :area: Papua New Guinea
+  :region: Papua New Guinea
   :dst: false
   :val: 600
 - :abbr: PHOT
   :title: Phoenix Island Time
-  :area: Phoenix Island
+  :region: Phoenix Island
   :dst: false
   :val: 780
 - :abbr: PKT
   :title: Pakistan Standard Time
-  :area: Pakistan
+  :region: Pakistan
   :dst: false
   :val: 300
 - :abbr: PMDT
   :title: Saint Pierre and Miquelon Daylight time
-  :area: Saint Pierre and Miquelon
+  :region: Saint Pierre and Miquelon
   :dst: true
   :val: -120
 - :abbr: PMST
   :title: Saint Pierre and Miquelon Standard Time
-  :area: Saint Pierre and Miquelon
+  :region: Saint Pierre and Miquelon
   :dst: false
   :val: -180
 - :abbr: PONT
   :title: Pohnpei Standard Time
-  :area: Pohnpei
+  :region: Pohnpei
   :dst: false
   :val: 660
 - :abbr: PST
   :title: Pacific Standard Time (North America)
-  :area: Pacific
+  :region: Pacific
   :dst: false
   :val: -480
 - :abbr: PST
   :title: Philippine Standard Time
-  :area: Philippine
+  :region: Philippine
   :dst: false
   :val: 480
 - :abbr: PYST
   :title: Paraguay Summer Time (South America)
-  :area: Paraguay
+  :region: Paraguay
   :dst: true
   :val: -180
 - :abbr: PYT
   :title: Paraguay Time (South America)
-  :area: Paraguay
+  :region: Paraguay
   :dst: false
   :val: -240
 - :abbr: RET
   :title: Réunion Time
-  :area: Réunion
+  :region: Réunion
   :dst: false
   :val: 240
 - :abbr: ROTT
   :title: Rothera Research Station Time
-  :area: Rothera Research Station
+  :region: Rothera Research Station
   :dst: false
   :val: -180
 - :abbr: SAKT
   :title: Sakhalin Island time
-  :area: Sakhalin Island
+  :region: Sakhalin Island
   :dst: false
   :val: 660
 - :abbr: SAMT
   :title: Samara Time
-  :area: Samara
+  :region: Samara
   :dst: false
   :val: 240
 - :abbr: SAST
   :title: South African Standard Time
-  :area: South African
+  :region: South African
   :dst: false
   :val: 120
 - :abbr: SBT
   :title: Solomon Islands Time
-  :area: Solomon Islands
+  :region: Solomon Islands
   :dst: false
   :val: 660
 - :abbr: SCT
   :title: Seychelles Time
-  :area: Seychelles
+  :region: Seychelles
   :dst: false
   :val: 240
 - :abbr: SGT
   :title: Singapore Time
-  :area: Singapore
+  :region: Singapore
   :dst: false
   :val: 480
 - :abbr: SLST
   :title: Sri Lanka Standard Time
-  :area: Sri Lanka
+  :region: Sri Lanka
   :dst: false
   :val: 330
 - :abbr: SRET
   :title: Srednekolymsk Time
-  :area: Srednekolymsk
+  :region: Srednekolymsk
   :dst: false
   :val: 660
 - :abbr: SRT
   :title: Suriname Time
-  :area: Suriname
+  :region: Suriname
   :dst: false
   :val: -180
 - :abbr: SST
   :title: Samoa Standard Time
-  :area: Samoa
+  :region: Samoa
   :dst: false
   :val: -660
 - :abbr: SST
   :title: Singapore Standard Time
-  :area: Singapore
+  :region: Singapore
   :dst: false
   :val: 480
 - :abbr: SYOT
   :title: Showa Station Time
-  :area: Showa Station
+  :region: Showa Station
   :dst: false
   :val: 180
 - :abbr: TAHT
   :title: Tahiti Time
-  :area: Tahiti
+  :region: Tahiti
   :dst: false
   :val: -600
 - :abbr: TFT
   :title: Indian/Kerguelen Time
-  :area: Indian/Kerguelen
+  :region: Indian/Kerguelen
   :dst: false
   :val: 300
 - :abbr: THA
   :title: Thailand Standard Time
-  :area: Thailand
+  :region: Thailand
   :dst: false
   :val: 420
 - :abbr: TJT
   :title: Tajikistan Time
-  :area: Tajikistan
+  :region: Tajikistan
   :dst: false
   :val: 300
 - :abbr: TKT
   :title: Tokelau Time
-  :area: Tokelau
+  :region: Tokelau
   :dst: false
   :val: 780
 - :abbr: TLT
   :title: Timor Leste Time
-  :area: Timor Leste
+  :region: Timor Leste
   :dst: false
   :val: 540
 - :abbr: TMT
   :title: Turkmenistan Time
-  :area: Turkmenistan
+  :region: Turkmenistan
   :dst: false
   :val: 300
 - :abbr: TOT
   :title: Tonga Time
-  :area: Tonga
+  :region: Tonga
   :dst: false
   :val: 780
 - :abbr: TRT
   :title: Turkey Time
-  :area: Turkey
+  :region: Turkey
   :dst: false
   :val: 180
 - :abbr: TVT
   :title: Tuvalu Time
-  :area: Tuvalu
+  :region: Tuvalu
   :dst: false
   :val: 720
 - :abbr: ULAST
   :title: Ulaanbaatar Summer Time
-  :area: Ulaanbaatar
+  :region: Ulaanbaatar
   :dst: true
   :val: 540
 - :abbr: ULAT
   :title: Ulaanbaatar Standard Time
-  :area: Ulaanbaatar
+  :region: Ulaanbaatar
   :dst: false
   :val: 480
 - :abbr: USZ1
   :title: Kaliningrad Time
-  :area: Kaliningrad
+  :region: Kaliningrad
   :dst: false
   :val: 120
 - :abbr: UYST
   :title: Uruguay Summer Time
-  :area: Uruguay
+  :region: Uruguay
   :dst: true
   :val: -120
 - :abbr: UYT
   :title: Uruguay Standard Time
-  :area: Uruguay
+  :region: Uruguay
   :dst: false
   :val: -180
 - :abbr: UZT
   :title: Uzbekistan Time
-  :area: Uzbekistan
+  :region: Uzbekistan
   :dst: false
   :val: 300
 - :abbr: VET
   :title: Venezuelan Standard Time
-  :area: Venezuelan
+  :region: Venezuelan
   :dst: false
   :val: -240
 - :abbr: VLAT
   :title: Vladivostok Time
-  :area: Vladivostok
+  :region: Vladivostok
   :dst: false
   :val: 600
 - :abbr: VOLT
   :title: Volgograd Time
-  :area: Volgograd
+  :region: Volgograd
   :dst: false
   :val: 240
 - :abbr: VOST
   :title: Vostok Station Time
-  :area: Vostok Station
+  :region: Vostok Station
   :dst: false
   :val: 360
 - :abbr: VUT
   :title: Vanuatu Time
-  :area: Vanuatu
+  :region: Vanuatu
   :dst: false
   :val: 660
 - :abbr: WAKT
   :title: Wake Island Time
-  :area: Wake Island
+  :region: Wake Island
   :dst: false
   :val: 720
 - :abbr: WAST
   :title: West Africa Summer Time
-  :area: West Africa
+  :region: West Africa
   :dst: true
   :val: 120
 - :abbr: WAT
   :title: West Africa Time
-  :area: West Africa
+  :region: West Africa
   :dst: false
   :val: 60
 - :abbr: WEST
   :title: Western European Summer Time
-  :area: Western European
+  :region: Western European
   :dst: true
   :val: 60
 - :abbr: WET
   :title: Western European Time
-  :area: Western European
+  :region: Western European
   :dst: false
   :val: 0
 - :abbr: WIT
   :title: Western Indonesian Time
-  :area: Western Indonesian
+  :region: Western Indonesian
   :dst: false
   :val: 420
 - :abbr: WST
   :title: Western Standard Time
-  :area: Western
+  :region: Western
   :dst: false
   :val: 480
 - :abbr: YAKT
   :title: Yakutsk Time
-  :area: Yakutsk
+  :region: Yakutsk
   :dst: false
   :val: 540
 - :abbr: YEKT
   :title: Yekaterinburg Time
-  :area: Yekaterinburg
+  :region: Yekaterinburg
   :dst: false
   :val: 300
