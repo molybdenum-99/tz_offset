@@ -1,6 +1,7 @@
 # TZOffset
 
 [![Gem Version](https://badge.fury.io/rb/tz_offset.svg)](http://badge.fury.io/rb/tz_offset)
+[![Dependency Status](https://gemnasium.com/molybdenum-99/tz_offset.svg)](https://gemnasium.com/molybdenum-99/tz_offset)
 [![Build Status](https://travis-ci.org/molybdenum-99/tz_offset.svg?branch=master)](https://travis-ci.org/molybdenum-99/tz_offset)
 
 Ever tried to convert your distant friend's or colleague's phrase "OK, let's connect tomorrow
