@@ -29,13 +29,16 @@ In other words, `TZOffset` is simple, no-magic, incapsulated abstraction of "tim
 * Knows about all common timezone abbreviations (got them from
   [there](https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations));
 * For ambiguous abbreviations, just returns list of all of them:
+
 ```ruby
 TZOffset.parse('EET')
 # => #<TZOffset +02:00 (EET)>
 TZOffset.parse('CDT')
 # => [#<TZOffset -05:00 (CDT)>, #<TZOffset -04:00 (CDT)>]
 ```
+
 * For symbolic timezones, provides a description, if available:
+
 ```ruby
 TZOffset.parse('CDT').map(&:description)
 # => ["Central Daylight Time (North America)", "Cuba Daylight Time"]
@@ -44,8 +47,10 @@ TZOffset.parse('CDT').map(&:region)
 
 # NB: Just "Central", "Eastern" and so on is related to North America in timezones nomenclature
 ```
-* for [DST](https://en.wikipedia.org/wiki/Daylight_saving_time)/non-DST timezones provides
+
+* for [DST](https://en.wikipedia.org/wiki/Daylight_saving_time) and non-DST timezones provides
   dst-flag and counterpart timezone, if available:
+
 ```ruby
 eet = TZOffset.parse('EET')
 # => #<TZOffset +02:00 (EET)>

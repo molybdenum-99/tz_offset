@@ -1,15 +1,46 @@
 require 'time'
 
+# Simple class representing timezone offset (in minutes). Knows almost nothing
+# about timezone name, DST or other complications, but useful when ONLY offset is known.
+#
+# Usage:
+#
+# ```ruby
+# o = Reality::TZOffset.parse('UTC+3')
+# # => #<Reality::TZOffset(UTC+03:00)>
+#
+# o.now
+# # => 2016-04-16 19:01:40 +0300
+# o.local(2016, 4, 1, 20, 30)
+# # => 2016-04-01 20:30:00 +0300
+# o.convert(Time.now)
+# # => 2016-04-16 19:02:22 +0300
+# ```
+#
 class TZOffset
   # Number of minutes in offset.
   #
   # @return [Fixnum]
   attr_reader :minutes
 
+  # Symbolic offset name if available (like "EEST").
+  #
+  # @note
+  #   TZOffset never tries to "guess" the name, it is only known if an object was parsed/created
+  #   from it.
+  #
+  # @return [String]
   attr_reader :name
 
+  # Full symbolic timezone description, as per wikipedia (like "Eastern European Summer Time"
+  # for "EEST").
+  #
+  # @return [String]
   attr_reader :description
 
+  # "Region" part of {#description}, like "Eastern European" for "EEST".
+  #
+  # @return [String]
   attr_reader :region
 
   # @private
@@ -17,7 +48,8 @@ class TZOffset
 
   # Parses TZOffset from string. Understands several options like:
   #
-  # * `GMT` (not all TZ names, only those Ruby itself knows about);
+  # * `GMT` (not all TZ names, just well-known
+  #   [abbreviations](https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations));
   # * `UTC+3` (or `GMT+3`);
   # * `+03:30`;
   # * ..and several combinations.
@@ -68,6 +100,10 @@ class TZOffset
     '%s%02i:%02i' % [sign, *minutes.abs.divmod(60)]
   end
 
+  # If offset is symbolic (e.g., "EET", not just "+02:00"), returns whether it is daylight
+  # saving time offset.
+  #
+  # See also {#opposite} for obtaining non-DST related to current DST offset and vice versa.
   def dst?
     @isdst
   end
@@ -111,6 +147,18 @@ class TZOffset
     convert(Time.now)
   end
 
+  # For symbolic offsets, returns opposite (DST for non-DST and vice versa) offset object if
+  # known, `nil` otherwise.
+  #
+  # @example
+  #   eet = TZOffset.parse('EET')
+  #   # => #<TZOffset +02:00 (EET)>
+  #   eet.opposite
+  #   # => #<TZOffset +03:00 (EEST)>
+  #   TZOffset.parse('+8').opposite
+  #   # => nil
+  #
+  # @return [TZOffset]
   def opposite
     return nil unless region
     ABBREV.values.flatten.detect { |tz| tz.region == region && tz.dst? == !dst? }
