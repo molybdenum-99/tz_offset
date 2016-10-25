@@ -12,7 +12,7 @@ TZOffset.parse('GMT+8').local(2016, 10, 20, 18).localtime
 TZOffset.parse('+8').local(2016, 10, 20, 18).localtime
 # => 2016-10-20 13:00:00 +0300
 
-# Also work with most common timezone abbreviations
+# Also works with most common timezone abbreviations
 TZOffset.parse('CEST').local(2016, 10, 20, 18).localtime
 # => 2016-10-20 19:00:00 +0300
 ```
@@ -25,9 +25,10 @@ In other words, `TZOffset` is simple, no-magic, incapsulated abstraction of "tim
 * No brains included: no huge and comprehensive database of historical times, no automatic
   DST conversion; you just know offset you need, and have it as a near-to-mathematical
   value;
-* Simple value objects, easily converted to/from YAML (so you can save them
+* Simple value objects, easily converted to/from YAML (so you can save them to databases,
+  pass to delayed jobs and so on);
 * Knows about all common timezone abbreviations (got them from
-  [there](https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations));
+  [Wikipedia list](https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations));
 * For ambiguous abbreviations, just returns list of all of them:
 
 ```ruby
@@ -94,3 +95,12 @@ eet.opposite
 eet.opposite.now
 # => 2016-10-25 21:39:26 +0300
 ```
+
+## Author
+
+[Victor Shepelev](http://zverok.github.io/) -- extracted from [reality](https://github.com/molybdenum-99/reality)
+project.
+
+## License
+
+MIT.
