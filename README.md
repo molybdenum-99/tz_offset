@@ -1,5 +1,8 @@
 # TZOffset
 
+[![Gem Version](https://badge.fury.io/rb/tz_offset.svg)](http://badge.fury.io/rb/tz_offset)
+[![Build Status](https://travis-ci.org/molybdenum-99/tz_offset.svg?branch=master)](https://travis-ci.org/molybdenum-99/tz_offset)
+
 Ever tried to convert your distant friend's or colleague's phrase "OK, let's connect tomorrow
 at 6 pm my time (GMT+8)" into easily calculatable Ruby code? E.g. what time it would be in your
 timezone at 18:00 GMT+8? What is your favorite solution? Now it should be that:
