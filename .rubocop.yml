@@ -5,6 +5,7 @@ AllCops:
     - 'spec/**/*'
     - 'script/**/*'
     - '**/*.yaml'
+    - 'lib/tz_offset/tasks/extract_offsets.rb'
 
 Style/MultilineBlockChain:
   Enabled: false
@@ -26,3 +27,9 @@ Lint/FormatParameterMismatch:
 
 Style/PerlBackrefs:
   Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+
+Metrics/AbcSize:
+  Max: 17

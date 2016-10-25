@@ -59,17 +59,15 @@ class TZOffset
     return ABBREV[text.upcase] if ABBREV.key?(text.upcase)
 
     text = text.gsub(MINUSES, '-')
-
-    sec =
-      case text
-      when /^[A-Z]{3}$/
-        Time.zone_offset(text)
-      when /^(?:UTC|GMT)?([+-]\d{1,2}:?\d{2})$/
-        offset = $1
-        Time.zone_offset(offset.sub(/^([+-])(\d):/, '\10\2:'))
-      when /^(?:UTC|GMT)?([+-]\d{1,2})/
-        $1.to_i * 3600
-      end
+    sec = case text
+          when /^[A-Z]{3}$/
+            Time.zone_offset(text)
+          when /^(?:UTC|GMT)?([+-]\d{1,2}:?\d{2})$/
+            offset = $1
+            Time.zone_offset(offset.sub(/^([+-])(\d):/, '\10\2:'))
+          when /^(?:UTC|GMT)?([+-]\d{1,2})/
+            $1.to_i * 3600
+          end
 
     sec && new(sec / 60)
   end
