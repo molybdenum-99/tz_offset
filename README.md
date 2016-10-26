@@ -101,7 +101,10 @@ eet.opposite.now
 
 # Parsing time string into desired timezone
 off = TZOffset.parse('-02:30')
+off.parse('2014-10-01 12:30')
+# => 2014-10-01 12:30:00 -0230
 off.parse('12:30')
+# => 2016-10-26 12:30:00 -0230
 ```
 
 ## Author
