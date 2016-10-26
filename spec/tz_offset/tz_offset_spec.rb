@@ -127,6 +127,7 @@ describe TZOffset do
     subject { offset.convert(tm) }
 
     it { is_expected.to eq Time.new(2016, 1, 29, 18, 15, 0, '+05:45') }
+    its(:utc_offset) { is_expected.to eq 5*3600 + 45*60 }
   end
 
   describe '#now' do
@@ -138,6 +139,22 @@ describe TZOffset do
 
     let(:offset) { TZOffset.parse('+5:45') }
     subject { offset.now }
+
     it { is_expected.to eq Time.new(2016, 1, 29, 18, 15, 0, '+05:45') }
+    its(:utc_offset) { is_expected.to eq 5*3600 + 45*60 }
+  end
+
+  describe '#parse' do
+    let(:tm) { Time.new(2016, 1, 29, 14, 30, 0, '+02:00') }
+    let(:offset) { TZOffset.parse('+5:45') }
+
+    before{
+      Timecop.freeze(tm)
+    }
+
+    subject { offset.parse('18:15') }
+
+    it { is_expected.to eq Time.new(2016, 1, 29, 18, 15, 0, '+05:45') }
+    its(:utc_offset) { is_expected.to eq 5*3600 + 45*60 }
   end
 end

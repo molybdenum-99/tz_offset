@@ -162,6 +162,31 @@ class TZOffset
     ABBREV.values.flatten.detect { |tz| tz.region == region && tz.dst? == !dst? }
   end
 
+  # Like `Time.parse`, but produces time in current offset.
+  #
+  # @note
+  #   If time string contains timezone abbreviation or offset by itself, it is just ignored.
+  #   The method is intended for "quick-n-dirty" parsing of things like "what is 12:30 in
+  #   CEST currently?"
+  #
+  # @example
+  #   # My current date and zone
+  #   Time.parse('12:30')
+  #   # => 2016-10-26 12:30:00 +0300
+  #   TZOffset.parse('PDT').parse('12:30')
+  #   # => 2016-10-26 12:30:00 -0700
+  #   # Now I can know what it will be for me when somebody
+  #   # says "I'll be available 12:30 PDT tomorrow":
+  #   TZOffset.parse('PDT').parse('12:30').localtime
+  #   # => 2016-10-26 22:30:00 +0300
+  #
+  # @param str [String] Same string that `Time.parse` could accept.
+  # @return [Time] Time parsed from `str` into current offset.
+  def parse(str)
+    t = Time.parse(str)
+    t && local(t.year, t.month, t.day, t.hour, t.min, t.sec)
+  end
+
   private
 
   def sign
