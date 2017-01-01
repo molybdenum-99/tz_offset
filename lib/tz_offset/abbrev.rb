@@ -15,7 +15,7 @@ class TZOffset
     .load_file(PATH)
     .map { |row|
       TZOffset.new(
-        row.fetch(:val),
+        row.fetch(:val) * 60,
         name: row.fetch(:abbr),
         description: row.fetch(:title),
         region: row.fetch(:region),

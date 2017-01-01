@@ -21,7 +21,7 @@ class TZOffset
   # Number of minutes in offset.
   #
   # @return [Fixnum]
-  attr_reader :minutes
+  attr_reader :seconds
 
   # Symbolic offset name if available (like "EEST").
   #
@@ -65,37 +65,56 @@ class TZOffset
           when /^(?:UTC|GMT)?([+-]\d{1,2}:?\d{2})$/
             offset = $1
             Time.zone_offset(offset.sub(/^([+-])(\d):/, '\10\2:'))
+          when /^(?<sign>[+-]?)(?<hours>\d{1,2})(:(?<minutes>\d{2})(:(?<seconds>\d{2}))?)?$/
+            data = Regexp.last_match
+
+            (data[:sign] == '-' ? -1 : +1) *
+              (data[:hours].to_i * 3600 + data[:minutes].to_i * 60 + data[:seconds].to_i)
           when /^(?:UTC|GMT)?([+-]\d{1,2})/
             $1.to_i * 3600
           end
 
-    sec && new(sec / 60)
+    sec && new(sec)
+  end
+
+  def self.zero
+    @zero ||= new(0)
   end
 
   # Constructs offset from number of minutes. In most cases, you don't
   # want to use it, but rather {TZOffset.parse}.
   #
   # @param minutes [Fixnum] Number of minutes in offset.
-  def initialize(minutes, name: nil, description: nil, region: nil, isdst: nil)
-    @minutes = minutes
+  def initialize(seconds, name: nil, description: nil, region: nil, isdst: nil)
+    @seconds = seconds
     @name = name
     @description = description
     @isdst = isdst
     @region = region
   end
 
+  def minutes
+    seconds.abs / 60 * (seconds <=> 0)
+  end
+
+  alias_method :to_i, :seconds
+
   # @return [String]
   def inspect
-    if name
-      '#<%s %s%02i:%02i (%s)>' % [self.class.name, sign, *minutes.abs.divmod(60), name]
-    else
-      '#<%s %s%02i:%02i>' % [self.class.name, sign, *minutes.abs.divmod(60)]
-    end
+    secs = (seconds.abs % 60).zero? ? '' : ':%02i' % (seconds.abs % 60)
+    nm = name ? " (#{name})" : ''
+
+    '#<%s %s%02i:%02i%s%s>' % [self.class.name, sign, *minutes.abs.divmod(60), secs, nm]
   end
 
   # @return [String]
   def to_s
-    '%s%02i:%02i' % [sign, *minutes.abs.divmod(60)]
+    secs = (seconds % 60).zero? ? '' : ':%02i' % (seconds % 60)
+    '%s%02i:%02i%s' % [sign, *minutes.abs.divmod(60), secs]
+  end
+
+  def +(other)
+    TZOffset.new(seconds + other.seconds) # TODO: + num, type control, specs
   end
 
   # If offset is symbolic (e.g., "EET", not just "+02:00"), returns whether it is daylight
@@ -132,7 +151,7 @@ class TZOffset
   # @param tm [Time] Time object to convert (with any offset);
   # @return [Time] Converted object.
   def convert(tm)
-    t = tm.getutc + minutes * 60
+    t = tm.getutc + seconds
 
     # FIXME: usec are lost
     mk(t.year, t.month, t.day, t.hour, t.min, t.sec)

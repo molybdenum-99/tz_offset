@@ -8,6 +8,10 @@ describe TZOffset do
       from(str).minutes
     end
 
+    def seconds_from(str)
+      from(str).seconds
+    end
+
     it 'can be created from offset str' do
       expect(minutes_from('-01:00')).to eq -60
       expect(minutes_from('+01:00')).to eq 60
@@ -19,6 +23,9 @@ describe TZOffset do
       expect(minutes_from('UTC+2')).to eq 120
       expect(minutes_from('+0200')).to eq 120
       expect(minutes_from('UTC+5:45')).to eq 60*5 + 45
+
+      expect(seconds_from('5:53:03')).to eq 5*3600 + 53*60 + 3
+      expect(seconds_from('-0:01:15')).to eq -(1*60 + 15)
     end
 
     it 'preserves offset name for named offsets' do
@@ -47,14 +54,14 @@ describe TZOffset do
   end
 
   describe '#initialize' do
-    it 'can be created from number of minutes' do
-      expect(off(-60).minutes).to eq -60
-      expect(off( 60).minutes).to eq 60
+    it 'can be created from number of seconds' do
+      expect(off(-3600).seconds).to eq -3600
+      expect(off( 3600).seconds).to eq 3600
     end
 
     it 'can have optional name' do
-      expect(off(-60, name: 'EET').name).to eq 'EET'
-      expect(off(-60).name).to be_nil
+      expect(off(-3600, name: 'EET').name).to eq 'EET'
+      expect(off(-3600).name).to be_nil
     end
   end
 
@@ -64,20 +71,25 @@ describe TZOffset do
     end
 
     it 'works' do
-      expect(at(-60)).to eq '#<TZOffset -01:00>'
-      expect(at(+60)).to eq '#<TZOffset +01:00>'
-      expect(at(-150)).to eq '#<TZOffset -02:30>'
-      expect(at(5 * 60 + 45)).to eq '#<TZOffset +05:45>'
+      expect(at(-3600)).to eq '#<TZOffset -01:00>'
+      expect(at(+3600)).to eq '#<TZOffset +01:00>'
+      expect(at(-9000)).to eq '#<TZOffset -02:30>'
+      expect(at(5 * 3600 + 45 * 60)).to eq '#<TZOffset +05:45>'
+      expect(at(-(1*60 + 15))).to eq '#<TZOffset -00:01:15>'
     end
 
     it 'preserves timezone name when available' do
-      expect(at(120, name: 'CEST')).to eq '#<TZOffset +02:00 (CEST)>'
+      expect(at(2 * 3600, name: 'CEST')).to eq '#<TZOffset +02:00 (CEST)>'
+    end
+
+    it 'shows non-zero seconds' do
+      expect(at(3600 + 1800 + 5)).to eq '#<TZOffset +01:30:05>'
     end
   end
 
   describe '#to_s' do
     def at(val)
-      off(val).to_s
+      off(val*60).to_s
     end
 
     it 'works' do
@@ -128,6 +140,13 @@ describe TZOffset do
 
     it { is_expected.to eq Time.new(2016, 1, 29, 18, 15, 0, '+05:45') }
     its(:utc_offset) { is_expected.to eq 5*3600 + 45*60 }
+
+    context 'with seconds' do
+      let(:offset) { TZOffset.parse('+5:45:20') }
+
+      it { is_expected.to eq Time.new(2016, 1, 29, 18, 15, 20, '+05:45:20') }
+      its(:utc_offset) { is_expected.to eq 5*3600 + 45*60 + 20 }
+    end
   end
 
   describe '#now' do
