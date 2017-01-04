@@ -89,13 +89,14 @@ describe TZOffset do
 
   describe '#to_s' do
     def at(val)
-      off(val*60).to_s
+      off(val).to_s
     end
 
     it 'works' do
-      expect(at(-60)).to eq '-01:00'
-      expect(at(+60)).to eq '+01:00'
-      expect(at(-150)).to eq '-02:30'
+      expect(at(-60*60)).to eq '-01:00'
+      expect(at(+60*60)).to eq '+01:00'
+      expect(at(-150*60)).to eq '-02:30'
+      expect(at(-75)).to eq '-00:01:15'
     end
   end
 

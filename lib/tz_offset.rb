@@ -109,7 +109,7 @@ class TZOffset
 
   # @return [String]
   def to_s
-    secs = (seconds % 60).zero? ? '' : ':%02i' % (seconds % 60)
+    secs = (seconds.abs % 60).zero? ? '' : ':%02i' % (seconds.abs % 60)
     '%s%02i:%02i%s' % [sign, *minutes.abs.divmod(60), secs]
   end
 
@@ -213,7 +213,7 @@ class TZOffset
   end
 
   def mk(*components)
-    Time.new(*components, to_s)
+    Time.new(*components, to_i)
   end
 end
 
