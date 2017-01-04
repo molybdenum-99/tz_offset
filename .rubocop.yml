@@ -33,3 +33,6 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Max: 17
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method

@@ -43,42 +43,55 @@ class TZOffset
   # @return [String]
   attr_reader :region
 
-  # @private
-  MINUSES = /[−—–]/
+  class << self
+    # @private
+    MINUSES = /[−—–]/
 
-  # Parses TZOffset from string. Understands several options like:
-  #
-  # * `GMT` (not all TZ names, just well-known
-  #   [abbreviations](https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations));
-  # * `UTC+3` (or `GMT+3`);
-  # * `+03:30`;
-  # * ..and several combinations.
-  #
-  # @return [TZOffset]
-  def self.parse(text)
-    return ABBREV[text.upcase] if ABBREV.key?(text.upcase)
+    # Parses TZOffset from string. Understands several options like:
+    #
+    # * `GMT` (not all TZ names, just well-known
+    #   [abbreviations](https://en.wikipedia.org/wiki/List_of_time_zone_abbreviations));
+    # * `UTC+3` (or `GMT+3`);
+    # * `+03:30`;
+    # * ..and several combinations.
+    #
+    # @return [TZOffset]
+    def parse(text)
+      return ABBREV[text.upcase] if ABBREV.key?(text.upcase)
 
-    text = text.gsub(MINUSES, '-')
-    sec = case text
-          when /^[A-Z]{3}$/
-            Time.zone_offset(text)
-          when /^(?:UTC|GMT)?([+-]\d{1,2}:?\d{2})$/
-            offset = $1
-            Time.zone_offset(offset.sub(/^([+-])(\d):/, '\10\2:'))
-          when /^(?<sign>[+-]?)(?<hours>\d{1,2})(:(?<minutes>\d{2})(:(?<seconds>\d{2}))?)?$/
-            data = Regexp.last_match
+      sec = parse_text(text.gsub(MINUSES, '-'))
+      sec && new(sec)
+    end
 
-            (data[:sign] == '-' ? -1 : +1) *
-              (data[:hours].to_i * 3600 + data[:minutes].to_i * 60 + data[:seconds].to_i)
-          when /^(?:UTC|GMT)?([+-]\d{1,2})/
-            $1.to_i * 3600
-          end
+    def zero
+      @zero ||= new(0)
+    end
 
-    sec && new(sec)
-  end
+    private
 
-  def self.zero
-    @zero ||= new(0)
+    def parse_text(text)
+      case text
+      when /^[A-Z]{3}$/
+        Time.zone_offset(text)
+      when /^(?:UTC|GMT)?([+-]\d{1,2}:?\d{2})$/
+        parse_zone_offset($1)
+
+      when /^(?<sign>[+-]?)(?<hours>\d{1,2})(:(?<minutes>\d{2})(:(?<seconds>\d{2}))?)?$/
+        parse_with_seconds(Regexp.last_match)
+
+      when /^(?:UTC|GMT)?([+-]\d{1,2})/
+        $1.to_i * 3600
+      end
+    end
+
+    def parse_zone_offset(offset)
+      Time.zone_offset(offset.sub(/^([+-])(\d):/, '\10\2:'))
+    end
+
+    def parse_with_seconds(match)
+      (match[:sign] == '-' ? -1 : +1) *
+        (match[:hours].to_i * 3600 + match[:minutes].to_i * 60 + match[:seconds].to_i)
+    end
   end
 
   # Constructs offset from number of minutes. In most cases, you don't
@@ -101,16 +114,15 @@ class TZOffset
 
   # @return [String]
   def inspect
-    secs = (seconds.abs % 60).zero? ? '' : ':%02i' % (seconds.abs % 60)
     nm = name ? " (#{name})" : ''
 
-    '#<%s %s%02i:%02i%s%s>' % [self.class.name, sign, *minutes.abs.divmod(60), secs, nm]
+    '#<%s %s%02i:%02i%s%s>' %
+      [self.class.name, sign, *minutes.abs.divmod(60), inspectable_seconds, nm]
   end
 
   # @return [String]
   def to_s
-    secs = (seconds.abs % 60).zero? ? '' : ':%02i' % (seconds.abs % 60)
-    '%s%02i:%02i%s' % [sign, *minutes.abs.divmod(60), secs]
+    '%s%02i:%02i%s' % [sign, *minutes.abs.divmod(60), inspectable_seconds]
   end
 
   def +(other)
@@ -207,6 +219,10 @@ class TZOffset
   end
 
   private
+
+  def inspectable_seconds
+    (seconds.abs % 60).zero? ? '' : ':%02i' % (seconds.abs % 60)
+  end
 
   def sign
     minutes < 0 ? '-' : '+'
