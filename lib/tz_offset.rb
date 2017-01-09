@@ -137,6 +137,10 @@ class TZOffset
     @isdst
   end
 
+  def zero?
+    @seconds.zero?
+  end
+
   # @return [Boolean]
   def <=>(other)
     other.is_a?(TZOffset) or raise ArgumentError, "Can't compare TZOffset with #{other.class}"
