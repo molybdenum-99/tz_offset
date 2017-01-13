@@ -18,7 +18,7 @@ require 'time'
 # ```
 #
 class TZOffset
-  # Number of minutes in offset.
+  # Number of seconds in offset.
   #
   # @return [Fixnum]
   attr_reader :seconds
@@ -63,9 +63,14 @@ class TZOffset
       sec && new(sec)
     end
 
+    # Returns zero (UTC) offset.
+    #
+    # @return [TZOffset]
     def zero
       @zero ||= new(0)
     end
+
+    alias_method :utc, :zero
 
     private
 
@@ -94,10 +99,10 @@ class TZOffset
     end
   end
 
-  # Constructs offset from number of minutes. In most cases, you don't
+  # Constructs offset from number of seconds. In most cases, you don't
   # want to use it, but rather {TZOffset.parse}.
   #
-  # @param minutes [Fixnum] Number of minutes in offset.
+  # @param seconds [Fixnum] Number of seconds in offset.
   def initialize(seconds, name: nil, description: nil, region: nil, isdst: nil)
     @seconds = seconds
     @name = name
@@ -106,6 +111,9 @@ class TZOffset
     @region = region
   end
 
+  # Minutes component of offset.
+  #
+  # @return [Integer]
   def minutes
     seconds.abs / 60 * (seconds <=> 0)
   end
@@ -125,10 +133,20 @@ class TZOffset
     '%s%02i:%02i%s' % [sign, *minutes.abs.divmod(60), inspectable_seconds]
   end
 
+  # @return [TZOffset] Offset negated.
   def -@
     TZOffset.new(-seconds)
   end
 
+  # Sums offset with other or just number of seconds.
+  #
+  # @example
+  #   TZOffset.parse('+2') + TZOffset.parse('+5')
+  #   # => #<TZOffset +07:00>
+  #   TZOffset.parse('+2') + 1200
+  #   # => #<TZOffset +02:20>
+  #
+  # @return [TZOffset]
   def +(other)
     case other
     when TZOffset
@@ -140,6 +158,15 @@ class TZOffset
     end
   end
 
+  # Substracts other offset or number of seconds.
+  #
+  # @example
+  #   TZOffset.parse('+2') - TZOffset.parse('+5')
+  #   # => #<TZOffset -03:00>
+  #   TZOffset.parse('+2') - 1200
+  #   # => #<TZOffset +01:40>
+  #
+  # @return [TZOffset]
   def -(other)
     other.respond_to?(:-@) or fail ArgumentError, "Can't subtract #{other.class} from TZOffset"
     self + -other
@@ -153,9 +180,12 @@ class TZOffset
     @isdst
   end
 
+  # If this offset is zero (UTC).
   def zero?
     @seconds.zero?
   end
+
+  alias_method :utc?, :zero?
 
   # @return [Boolean]
   def <=>(other)
