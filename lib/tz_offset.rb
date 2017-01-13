@@ -125,8 +125,24 @@ class TZOffset
     '%s%02i:%02i%s' % [sign, *minutes.abs.divmod(60), inspectable_seconds]
   end
 
+  def -@
+    TZOffset.new(-seconds)
+  end
+
   def +(other)
-    TZOffset.new(seconds + other.seconds) # TODO: + num, type control, specs
+    case other
+    when TZOffset
+      TZOffset.new(seconds + other.seconds)
+    when Numeric
+      TZOffset.new(seconds + other)
+    else
+      fail ArgumentError, "Can't sum with #{other.class}"
+    end
+  end
+
+  def -(other)
+    other.respond_to?(:-@) or fail ArgumentError, "Can't subtract #{other.class} from TZOffset"
+    self + -other
   end
 
   # If offset is symbolic (e.g., "EET", not just "+02:00"), returns whether it is daylight
@@ -143,7 +159,7 @@ class TZOffset
 
   # @return [Boolean]
   def <=>(other)
-    other.is_a?(TZOffset) or raise ArgumentError, "Can't compare TZOffset with #{other.class}"
+    return nil unless other.is_a?(TZOffset)
     minutes <=> other.minutes
   end
 

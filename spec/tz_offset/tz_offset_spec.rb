@@ -49,6 +49,10 @@ describe TZOffset do
     end
   end
 
+  describe '.zero' do
+    specify { expect(described_class.zero).to eq TZOffset.new(0) }
+  end
+
   def off(*val)
     described_class.new(*val)
   end
@@ -100,6 +104,50 @@ describe TZOffset do
     end
   end
 
+  describe '#-@' do
+    subject { -TZOffset.parse('+01:00') }
+
+    it { is_expected.to eq TZOffset.parse('-01:00') }
+  end
+
+  describe '#+' do
+    subject { TZOffset.parse('+01:00') + other }
+
+    context 'with other offset' do
+      let(:other) { TZOffset.parse('-03:15') }
+      it { is_expected.to eq TZOffset.parse('-02:15') }
+    end
+
+    context 'with numeric' do
+      let(:other) { 120 }
+      it { is_expected.to eq TZOffset.parse('+01:02') }
+    end
+
+    context 'with anything else' do
+      let(:other) { 'xxx' }
+      its_call { is_expected.to raise_error ArgumentError }
+    end
+  end
+
+  describe '#-' do
+    subject { TZOffset.parse('+01:00') - other }
+
+    context 'with other offset' do
+      let(:other) { TZOffset.parse('-03:15') }
+      it { is_expected.to eq TZOffset.parse('+04:15') }
+    end
+
+    context 'with numeric' do
+      let(:other) { 120 }
+      it { is_expected.to eq TZOffset.parse('+00:58') }
+    end
+
+    context 'with anything else' do
+      let(:other) { 'xxx' }
+      its_call { is_expected.to raise_error ArgumentError }
+    end
+  end
+
   describe '#==' do
     it 'looks at minutes' do
       expect(off(60)).to eq off(60)
@@ -120,8 +168,8 @@ describe TZOffset do
       expect(off(60) <=> off(30)).to eq 1
     end
 
-    it 'fails on incompatible objects' do
-      expect { off(60) <=> 60 }.to raise_error(ArgumentError)
+    it 'returns nothing on incompatible objects' do
+      expect(off(60) <=> 60).to be_nil
     end
   end
 
@@ -176,5 +224,22 @@ describe TZOffset do
 
     it { is_expected.to eq Time.new(2016, 1, 29, 18, 15, 0, '+05:45') }
     its(:utc_offset) { is_expected.to eq 5*3600 + 45*60 }
+  end
+
+  describe '#zero?' do
+    context 'when zero' do
+      subject { TZOffset.new(0) }
+      it { is_expected.to be_zero }
+    end
+
+    context 'when non-zero' do
+      subject { TZOffset.new(1) }
+      it { is_expected.not_to be_zero }
+    end
+  end
+
+  describe '#opposite' do
+    specify { expect(TZOffset.parse('EET').opposite).to eq TZOffset.parse('EEST') }
+    specify { expect(TZOffset.parse('EEST').opposite).to eq TZOffset.parse('EET') }
   end
 end
