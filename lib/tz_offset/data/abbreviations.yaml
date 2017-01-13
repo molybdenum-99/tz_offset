@@ -699,6 +699,11 @@
   :region: Phoenix Island
   :dst: false
   :val: 780
+- :abbr: PHT
+  :title: Philippine Time
+  :region: Philippine
+  :dst: false
+  :val: 480
 - :abbr: PKT
   :title: Pakistan Standard Time
   :region: Pakistan
