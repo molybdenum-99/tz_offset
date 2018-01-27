@@ -9,6 +9,7 @@ class TZOffset
         'Gambier Islands',
         'South Georgia and the South Sandwich Islands',
         "Heure Avancée d'Europe Centrale francised name for CEST",
+        "Heure Avancée d'Europe Centrale French-language name for CEST",
         'Marshall Islands',
         'Indian/Kerguelen'
       ]

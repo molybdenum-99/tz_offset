@@ -23,6 +23,7 @@ describe TZOffset do
       expect(minutes_from('UTC+2')).to eq 120
       expect(minutes_from('+0200')).to eq 120
       expect(minutes_from('UTC+5:45')).to eq 60*5 + 45
+      expect(minutes_from('±00:00UTC')).to eq 0
 
       expect(seconds_from('5:53:03')).to eq 5*3600 + 53*60 + 3
       expect(seconds_from('-0:01:15')).to eq -(1*60 + 15)

@@ -45,7 +45,8 @@ class TZOffset
 
   class << self
     # @private
-    MINUSES = /[−—–]/
+    # ± should hopefully do no harm to be considered minus, as it happens only in ±00:00 statements
+    MINUSES = /[−—–±]/
 
     # Parses TZOffset from string. Understands several options like:
     #

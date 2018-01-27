@@ -14,6 +14,16 @@
   :region: Acre
   :dst: false
   :val: -300
+- :abbr: ACT
+  :title: ASEAN Common Time
+  :region: ASEAN Common
+  :dst: false
+  :val: 360
+- :abbr: ACWST
+  :title: Australian Central Western Standard Time (unofficial)
+  :region: Australian Central Western
+  :dst: false
+  :val: 525
 - :abbr: ADT
   :title: Atlantic Daylight Time
   :region: Atlantic
@@ -115,8 +125,8 @@
   :dst: false
   :val: -240
 - :abbr: BRST
-  :title: Brasilia Summer Time
-  :region: Brasilia
+  :title: Brasília Summer Time
+  :region: Brasília
   :dst: true
   :val: -120
 - :abbr: BRT
@@ -255,7 +265,7 @@
   :dst: false
   :val: -300
 - :abbr: CT
-  :title: China time
+  :title: China Time
   :region: China
   :dst: false
   :val: 480
@@ -280,8 +290,8 @@
   :dst: false
   :val: 600
 - :abbr: DFT
-  :title: AIX specific equivalent of Central European Time
-  :region: AIX specific equivalent of Central European
+  :title: AIX-specific equivalent of Central European Time
+  :region: AIX-specific equivalent of Central European
   :dst: false
   :val: 60
 - :abbr: EASST
@@ -370,8 +380,8 @@
   :dst: false
   :val: -120
 - :abbr: GALT
-  :title: Galapagos Time
-  :region: Galapagos
+  :title: Galápagos Time
+  :region: Galápagos
   :dst: false
   :val: -360
 - :abbr: GAMT
@@ -419,21 +429,16 @@
   :region: Guyana
   :dst: false
   :val: -240
-- :abbr: HADT
-  :title: Hawaii-Aleutian Daylight Time
-  :region: Hawaii-Aleutian
-  :dst: true
-  :val: -540
 - :abbr: HAEC
-  :title: Heure Avancée d'Europe Centrale francised name for CEST Time
-  :region: Heure Avancée d'Europe Centrale francised name for CEST
+  :title: Heure Avancée d'Europe Centrale French-language name for CEST Time
+  :region: Heure Avancée d'Europe Centrale French-language name for CEST
   :dst: false
   :val: 120
-- :abbr: HAST
-  :title: Hawaii-Aleutian Standard Time
-  :region: Hawaii-Aleutian
-  :dst: false
-  :val: -600
+- :abbr: HDT
+  :title: Hawaii–Aleutian Daylight Time
+  :region: Hawaii–Aleutian
+  :dst: true
+  :val: -540
 - :abbr: HKT
   :title: Hong Kong Time
   :region: Hong Kong
@@ -454,6 +459,11 @@
   :region: Khovd
   :dst: false
   :val: 420
+- :abbr: HST
+  :title: Hawaii–Aleutian Standard Time
+  :region: Hawaii–Aleutian
+  :dst: false
+  :val: -600
 - :abbr: ICT
   :title: Indochina Time
   :region: Indochina
@@ -505,7 +515,7 @@
   :dst: false
   :val: 540
 - :abbr: KGT
-  :title: Kyrgyzstan time
+  :title: Kyrgyzstan Time
   :region: Kyrgyzstan
   :dst: false
   :val: 360
@@ -630,8 +640,8 @@
   :dst: true
   :val: -150
 - :abbr: NFT
-  :title: Norfolk Time
-  :region: Norfolk
+  :title: Norfolk Island Time
+  :region: Norfolk Island
   :dst: false
   :val: 660
 - :abbr: NPT
@@ -710,7 +720,7 @@
   :dst: false
   :val: 300
 - :abbr: PMDT
-  :title: Saint Pierre and Miquelon Daylight time
+  :title: Saint Pierre and Miquelon Daylight Time
   :region: Saint Pierre and Miquelon
   :dst: true
   :val: -120
@@ -735,12 +745,12 @@
   :dst: false
   :val: 480
 - :abbr: PYST
-  :title: Paraguay Summer Time (South America)
+  :title: Paraguay Summer Time
   :region: Paraguay
   :dst: true
   :val: -180
 - :abbr: PYT
-  :title: Paraguay Time (South America)
+  :title: Paraguay Time
   :region: Paraguay
   :dst: false
   :val: -240
@@ -755,7 +765,7 @@
   :dst: false
   :val: -180
 - :abbr: SAKT
-  :title: Sakhalin Island time
+  :title: Sakhalin Island Time
   :region: Sakhalin Island
   :dst: false
   :val: 660
@@ -779,6 +789,11 @@
   :region: Seychelles
   :dst: false
   :val: 240
+- :abbr: SDT
+  :title: Samoa Daylight Time
+  :region: Samoa
+  :dst: true
+  :val: -600
 - :abbr: SGT
   :title: Singapore Time
   :region: Singapore
