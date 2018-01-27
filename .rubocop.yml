@@ -21,6 +21,7 @@ Style/BlockDelimiters:
 
 Metrics/LineLength:
   Max: 100
+  IgnoredPatterns: ['#.+']
 
 Style/AndOr:
   Enabled: false
