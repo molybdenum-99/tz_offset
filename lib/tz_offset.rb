@@ -56,7 +56,16 @@ class TZOffset
     # * `+03:30`;
     # * ..and several combinations.
     #
-    # @return [TZOffset]
+    # @example
+    #   TZOffset.parse('+05:30') # => #<TZOffset +05:30>
+    #   TZOffset.parse('UTC+0200') # => #<TZOffset +02:00>
+    #   TZOffset.parse('something') # => nil
+    #   TZOffset.parse('EST') # => #<TZOffset -05:00 (EST)>
+    #   TZOffset.parse('CST') # => [#<TZOffset -06:00 (CST)>, #<TZOffset +08:00 (CST)>, #<TZOffset -05:00 (CST)>]
+    #   TZOffset.parse('CST').map(&:description) # => ["Central Standard Time (North America)", "China Standard Time", "Cuba Standard Time"]
+    #
+    # @return [TZOffset, Array<TZOffset>, nil] Returns array on ambigous abbreviations, and `nil` on
+    #   unparseable string.
     def parse(text)
       return ABBREV[text.upcase] if ABBREV.key?(text.upcase)
 
@@ -198,7 +207,7 @@ class TZOffset
 
   # @return [Boolean]
   def ==(other)
-    other.class == self.class && other.minutes == minutes
+    other.class == self.class && other.seconds == seconds
   end
 
   # Like Ruby's `Time.local`, but in current offset.

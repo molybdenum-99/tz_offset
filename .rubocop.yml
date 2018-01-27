@@ -6,6 +6,12 @@ AllCops:
     - 'script/**/*'
     - '**/*.yaml'
     - 'lib/tz_offset/tasks/extract_offsets.rb'
+    - 'Rakefile'
+    - 'Gemfile'
+    - 'tz_offset.gemspec'
+
+Style/AsciiComments:
+  Enabled: false
 
 Style/MultilineBlockChain:
   Enabled: false
@@ -27,6 +33,9 @@ Lint/FormatParameterMismatch:
 
 Style/PerlBackrefs:
   Enabled: false
+
+Style/FormatStringToken:
+  EnforcedStyle: unannotated
 
 Metrics/MethodLength:
   Max: 15
