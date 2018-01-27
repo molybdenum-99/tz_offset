@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'saharspec', git: 'https://github.com/zverok/saharspec.git', branch: 'master'
+gem 'saharspec', '~> 0.0.4'
 
 gemspec

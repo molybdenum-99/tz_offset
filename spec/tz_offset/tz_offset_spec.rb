@@ -126,27 +126,16 @@ describe TZOffset do
 
     context 'with anything else' do
       let(:other) { 'xxx' }
-      its_call { is_expected.to raise_error ArgumentError }
+      its_block { is_expected.to raise_error ArgumentError }
     end
   end
 
   describe '#-' do
-    subject { TZOffset.parse('+01:00') - other }
+    subject { TZOffset.parse('+01:00').method(:-) }
 
-    context 'with other offset' do
-      let(:other) { TZOffset.parse('-03:15') }
-      it { is_expected.to eq TZOffset.parse('+04:15') }
-    end
-
-    context 'with numeric' do
-      let(:other) { 120 }
-      it { is_expected.to eq TZOffset.parse('+00:58') }
-    end
-
-    context 'with anything else' do
-      let(:other) { 'xxx' }
-      its_call { is_expected.to raise_error ArgumentError }
-    end
+    its_call(TZOffset.parse('-03:15')) { is_expected.to ret TZOffset.parse('+04:15') }
+    its_call(120) { is_expected.to ret TZOffset.parse('+00:58') }
+    its_call('xxx') { is_expected.to raise_error ArgumentError }
   end
 
   describe '#==' do
